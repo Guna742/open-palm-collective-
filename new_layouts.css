@@ -1,0 +1,164 @@
+/* --- Zigzag Layout (About Page) --- */
+.zigzag-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.zigzag-item {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.zigzag-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.zigzag-content {
+    flex: 1;
+}
+
+.zigzag-image {
+    flex: 1;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-hover);
+    position: relative;
+}
+
+.zigzag-image::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: -20px;
+    bottom: -20px;
+    border: 2px solid var(--primary-red);
+    border-radius: var(--border-radius);
+    z-index: -1;
+}
+
+/* --- Project Cards (Initiatives Page) --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border-top: 5px solid var(--artistic-turquoise);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--deep-black);
+}
+
+.project-lead {
+    font-family: var(--font-subheading);
+    font-size: 0.9rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    display: block;
+    font-weight: 600;
+}
+
+/* --- Stylish Leadership (Leadership Page) --- */
+.stylish-profile {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-hover);
+    margin-top: 40px;
+}
+
+.profile-visual {
+    background: var(--deep-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: var(--white);
+    position: relative;
+}
+
+/* Abstract shapes for profile bg */
+.profile-visual::after {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(244, 162, 97, 0.2) 0%, rgba(29, 53, 87, 0) 70%);
+    top: -25%;
+    left: -25%;
+}
+
+.profile-details {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stylish-name {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+    background: var(--gradient-accent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+
+    .zigzag-item,
+    .zigzag-item:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .stylish-profile {
+        grid-template-columns: 1fr;
+    }
+
+    .zigzag-image {
+        width: 100%;
+        height: 300px;
+    }
+}
